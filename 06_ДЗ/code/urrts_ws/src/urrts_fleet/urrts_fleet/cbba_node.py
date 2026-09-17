@@ -90,8 +90,11 @@ class CbbaNode(Node):
             self.radio.publish(RadioPacket(sender=self.name, topic="cbba", payload=json.dumps(st)))
 
     def maybe_commit(self, now, busy):
-        """Закрепить первый заказ маршрута за роботом, если исполнитель свободен
-        и выигрыш стабилен commit_after секунд."""
+        """Закрепить первый заказ маршрута за роботом, если исполнитель свободен,
+        выигрыш стабилен commit_after секунд и все свежие соседи это подтвердили:
+        их последние состояния отправлены уже после того, как заказ стал нашим.
+        Без подтверждения два робота под нагрузкой (или на границе дальности связи)
+        закрепляют один заказ: каждый считает себя победителем по устаревшим данным."""
         ag = self.agent
         head = ag.head()
         if head is None or ag.z.get(head) != self.name:
@@ -104,6 +107,9 @@ class CbbaNode(Node):
             return
         if now - self.t_start < self.stale_after:
             return                # прогрев: соседи ещё не услышаны
+        for st in self.neigh.values():
+            if now - st["stamp"] <= self.stale_after and st["stamp"] <= self.head_since[1]:
+                return            # сосед ещё не мог узнать о нашем выигрыше
         o = ag.orders[head]
         ag.remove_order(head)
         self.pending = head

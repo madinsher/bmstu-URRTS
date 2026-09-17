@@ -41,13 +41,22 @@ def test_held_by_neighbour(wh):
     assert not t.may_enter((0, 1), {"r2": st(1.0, [(0, 1)])}, 1.0)
 
 
+def test_requires_neighbour_acknowledgement(wh):
+    t = Traffic("r1", wh, settle=0.3)
+    t.want, t.want_since = (0, 1), 1.0
+    stale_state = st(1.2, [(5, 5)])          # отправлено раньше, чем заявка могла дойти
+    assert not t.may_enter((0, 1), {"r2": stale_state}, 2.0)
+    fresh_state = st(1.4, [(5, 5)])          # отправлено после want_since + settle
+    assert t.may_enter((0, 1), {"r2": fresh_state}, 2.0)
+
+
 def test_priority_by_time_then_name(wh):
     t = Traffic("r2", wh, settle=0.3)
     t.want, t.want_since = (0, 1), 1.0
-    assert not t.may_enter((0, 1), {"r3": st(1.5, [(0, 2)], (0, 1), 0.9)}, 1.5)
-    assert t.may_enter((0, 1), {"r3": st(1.5, [(0, 2)], (0, 1), 1.1)}, 1.5)
-    assert not t.may_enter((0, 1), {"r1": st(1.5, [(0, 0)], (0, 1), 1.0)}, 1.5)
-    assert t.may_enter((0, 1), {"r4": st(1.5, [(0, 2)], (0, 1), 1.0)}, 1.5)
+    assert not t.may_enter((0, 1), {"r3": st(1.5, [(0, 2)], (0, 1), 0.9)}, 1.6)
+    assert t.may_enter((0, 1), {"r3": st(1.5, [(0, 2)], (0, 1), 1.1)}, 1.6)
+    assert not t.may_enter((0, 1), {"r1": st(1.5, [(0, 0)], (0, 1), 1.0)}, 1.6)
+    assert t.may_enter((0, 1), {"r4": st(1.5, [(0, 2)], (0, 1), 1.0)}, 1.6)
 
 
 def test_two_robots_never_reserve_same_cell(wh):

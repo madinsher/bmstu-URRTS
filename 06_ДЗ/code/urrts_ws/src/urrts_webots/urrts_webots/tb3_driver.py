@@ -16,7 +16,7 @@ from tf2_msgs.msg import TFMessage
 
 WHEEL_R = 0.033
 AXLE = 0.160
-MAX_W = 6.67
+MAX_W = 6.6          # чуть ниже maxVelocity = 6,67 рад/с, чтобы Webots не предупреждал
 CMD_TIMEOUT = 0.5
 
 
