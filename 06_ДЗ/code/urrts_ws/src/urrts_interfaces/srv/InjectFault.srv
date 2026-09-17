@@ -1,0 +1,7 @@
+# Fault injection for tests.
+string robot
+string fault             # "stop" | "mute" | "unmute" | "slow"
+float64 value            # parameter of the fault (e.g. slowdown factor)
+---
+bool ok
+string message

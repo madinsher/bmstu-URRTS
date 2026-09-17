@@ -1,0 +1,10 @@
+# Drive to a station (or to coordinates if station is empty).
+string station
+float64 x
+float64 y
+---
+bool success
+string message
+float64 travel_time      # seconds
+---
+float64 distance_remaining

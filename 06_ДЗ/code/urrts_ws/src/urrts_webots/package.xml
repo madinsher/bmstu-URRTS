@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>urrts_webots</name>
+  <version>2026.1.0</version>
+  <description>URRTS homework stage 4: Webots warehouse, TurtleBot3 drivers, Nav2 bridge</description>
+  <maintainer email="urrts@example.org">URRTS course</maintainer>
+  <license>MIT</license>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend>
+  <exec_depend>nav2_planner</exec_depend>
+  <exec_depend>nav2_controller</exec_depend>
+  <exec_depend>nav2_behaviors</exec_depend>
+  <exec_depend>nav2_bt_navigator</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+  <exec_depend>webots_ros2_driver</exec_depend>
+  <exec_depend>urrts_interfaces</exec_depend>
+  <exec_depend>urrts_sim</exec_depend>
+  <exec_depend>urrts_fleet</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

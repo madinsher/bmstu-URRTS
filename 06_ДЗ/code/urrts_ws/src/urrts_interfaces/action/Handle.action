@@ -1,0 +1,8 @@
+# Load (pick = true) or unload an item at the current station.
+bool pick
+string station
+---
+bool success
+string message
+---
+float64 progress         # 0..1

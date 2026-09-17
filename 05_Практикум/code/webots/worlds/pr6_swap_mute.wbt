@@ -1,0 +1,145 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  info [ "Практикум УРРТС: обмен местами с барьерными функциями" ]
+  title "pr6_swap_mute"
+  basicTimeStep 32
+}
+Viewpoint {
+  orientation 0 1 0 1.5708
+  position 0 0 2.5
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 2.0 2.0
+  tileSize 0.25 0.25
+}
+DEF R0 E-puck {
+  translation 0.6055 -0.0092 0
+  rotation 0 0 1 3.1340
+  name "e-puck 0"
+  controller "urrts_epuck"
+  controllerArgs [ "id=0" "mode=swap" "goal=-0.6000,0.0000" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R1 E-puck {
+  translation 0.4059 0.4049 0
+  rotation 0 0 1 -2.3568
+  name "e-puck 1"
+  controller "urrts_epuck"
+  controllerArgs [ "id=1" "mode=swap" "goal=-0.4243,-0.4243" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R2 E-puck {
+  translation 0.0125 0.6165 0
+  rotation 0 0 1 -1.5811
+  name "e-puck 2"
+  controller "urrts_epuck"
+  controllerArgs [ "id=2" "mode=swap" "goal=-0.0000,-0.6000" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R3 E-puck {
+  translation -0.4200 0.4334 0
+  rotation 0 0 1 -0.7933
+  name "e-puck 3"
+  controller "urrts_epuck"
+  controllerArgs [ "id=3" "mode=swap" "goal=0.4243,-0.4243" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R4 E-puck {
+  translation -0.5983 0.0174 0
+  rotation 0 0 1 -0.0145
+  name "e-puck 4"
+  controller "urrts_epuck"
+  controllerArgs [ "id=4" "mode=swap" "goal=0.6000,-0.0000" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R5 E-puck {
+  translation -0.4116 -0.4442 0
+  rotation 0 0 1 0.8045
+  name "e-puck 5"
+  controller "urrts_epuck"
+  controllerArgs [ "id=5" "mode=swap" "goal=0.4243,0.4243" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R6 E-puck {
+  translation 0.0143 -0.6187 0
+  rotation 0 0 1 1.5825
+  name "e-puck 6"
+  controller "urrts_epuck"
+  controllerArgs [ "id=6" "mode=swap" "goal=0.0000,0.6000" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R7 E-puck {
+  translation 0.4335 -0.4372 0
+  rotation 0 0 1 2.3540
+  name "e-puck 7"
+  controller "urrts_epuck"
+  controllerArgs [ "id=7" "mode=swap" "goal=-0.4243,0.4243" "dsafe=0.12" "gamma=2.0" "radio=1.0" "vmax=0.1" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 1.0 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+Robot {
+  name "supervisor"
+  controller "urrts_supervisor"
+  controllerArgs [ "n=8" "name=pr6_swap_mute" "duration=90" "dsafe=0.074" "goals=-0.6000,0.0000;-0.4243,-0.4243;-0.0000,-0.6000;0.4243,-0.4243;0.6000,-0.0000;0.4243,0.4243;0.0000,0.6000;-0.4243,0.4243" "mute=3-40:0" ]
+  supervisor TRUE
+  children [
+    Emitter { name "cmd_tx" type "radio" range -1 channel 6 }
+  ]
+}

@@ -1,0 +1,117 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  info [ "Практикум УРРТС: формация «шестиугольник» по радио" ]
+  title "pr1_formation"
+  basicTimeStep 32
+}
+Viewpoint {
+  orientation 0 1 0 1.5708
+  position 0 0 3.125
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 2.5 2.5
+  tileSize 0.25 0.25
+}
+DEF R0 E-puck {
+  translation 0.4289 -0.5597 0
+  rotation 0 0 1 0.7250
+  name "e-puck 0"
+  controller "urrts_epuck"
+  controllerArgs [ "id=0" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R1 E-puck {
+  translation 0.2756 -0.3892 0
+  rotation 0 0 1 -0.7309
+  name "e-puck 1"
+  controller "urrts_epuck"
+  controllerArgs [ "id=1" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R2 E-puck {
+  translation 0.4358 0.0498 0
+  rotation 0 0 1 3.1241
+  name "e-puck 2"
+  controller "urrts_epuck"
+  controllerArgs [ "id=2" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R3 E-puck {
+  translation -0.2403 -0.0928 0
+  rotation 0 0 1 3.0212
+  name "e-puck 3"
+  controller "urrts_epuck"
+  controllerArgs [ "id=3" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R4 E-puck {
+  translation -0.5660 -0.4509 0
+  rotation 0 0 1 1.1658
+  name "e-puck 4"
+  controller "urrts_epuck"
+  controllerArgs [ "id=4" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+DEF R5 E-puck {
+  translation 0.2047 0.1766 0
+  rotation 0 0 1 0.9454
+  name "e-puck 5"
+  controller "urrts_epuck"
+  controllerArgs [ "id=5" "mode=formation" "n=6" "shape=hexagon" "size=0.2" "radio=0.7" "vmax=0.1" "stale=0.5" ]
+  turretSlot [
+    GPS { name "gps" }
+    InertialUnit { name "imu" }
+    Emitter { name "radio_tx" type "radio" range 0.7 channel 5 }
+    Receiver { name "radio_rx" type "radio" channel 5 }
+    Receiver { name "cmd_rx" type "radio" channel 6 }
+  ]
+}
+Robot {
+  name "supervisor"
+  controller "urrts_supervisor"
+  controllerArgs [ "n=6" "name=pr1_formation" "duration=60" "shape=hexagon" "size=0.2" ]
+  supervisor TRUE
+  children [
+    Emitter { name "cmd_tx" type "radio" range -1 channel 6 }
+  ]
+}
